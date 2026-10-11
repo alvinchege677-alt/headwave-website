@@ -1,119 +1,399 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Headwave — Investment Demo</title>
-<style>
-:root{--ink:#173c35;--green:#1f6b55;--mint:#eaf4ee;--paper:#f7f8f5;--muted:#69766f;--line:#e1e8e2;--white:#fff;--gold:#e8b85b}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:#1b2d26;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}.wrap{max-width:1120px;margin:auto;padding:0 22px}.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:22px;letter-spacing:-.6px;color:var(--ink)}.logo{height:40px;width:40px;border-radius:13px;background:var(--ink);display:grid;place-items:center;color:white}.navlinks{display:flex;align-items:center;gap:24px;color:var(--muted);font-size:14px}.navlinks a{color:inherit;text-decoration:none}.pill{border:1px solid #c9d9cf;background:#fff;border-radius:99px;padding:8px 12px;color:var(--green);font-size:12px;font-weight:700}.hero{background:var(--ink);color:#fff;border-radius:28px;padding:clamp(28px,6vw,64px);display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center;overflow:hidden;position:relative}.eyebrow{color:#b9d8c7;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.8px}.hero h1{font-size:clamp(36px,5vw,60px);line-height:1.04;letter-spacing:-2px;margin:18px 0}.hero p{max-width:510px;color:#d5e3dc;line-height:1.7}.btn{border:0;border-radius:12px;background:#d9f0df;color:#173c35;padding:13px 18px;font-weight:800;cursor:pointer}.btn:hover{filter:brightness(.97)}.btn.secondary{background:#fff;border:1px solid var(--line)}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.preview{background:#fff;color:#1b2d26;border-radius:22px;padding:23px;box-shadow:0 24px 60px #09281e33;transform:rotate(1deg)}.preview-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}.balance{font-size:34px;font-weight:800;letter-spacing:-1px;margin:15px 0 5px}.small{font-size:12px;color:var(--muted)}.spark{height:86px;width:100%;margin:12px 0}.fakebar{height:8px;border-radius:10px;background:#e5eee8;margin:9px 0}.fakebar span{display:block;width:72%;height:100%;border-radius:10px;background:var(--green)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:44px 0 18px}.section-head h2{margin:0;font-size:25px;letter-spacing:-.7px}.section-head p{margin:6px 0 0;color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:22px}.card-icon{height:42px;width:42px;border-radius:13px;background:var(--mint);display:grid;place-items:center;color:var(--green);font-size:21px}.card h3{margin:16px 0 7px}.card p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}.dashboard{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;margin-top:16px}.field{display:flex;flex-direction:column;gap:7px;margin:15px 0}.field label{font-size:13px;font-weight:700}.field input,.field select{width:100%;padding:13px 14px;border:1px solid #d8e2da;border-radius:11px;background:#fff;outline:none}.field input:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 3px #1f6b5518}.form-note{font-size:12px;color:var(--muted);line-height:1.5}.notice{background:#fff7e5;border:1px solid #f0dfb7;color:#71521a;padding:13px 15px;border-radius:12px;font-size:13px;line-height:1.55;margin-top:17px}.transactions{margin-top:14px}.tx{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);gap:12px}.tx:last-child{border-bottom:0}.tx-title{font-size:14px;font-weight:700}.tx-sub{font-size:12px;color:var(--muted);margin-top:4px}.amount{font-weight:800;color:var(--green);white-space:nowrap}.empty{color:var(--muted);font-size:14px;padding:14px 0}.footer{padding:35px 0 50px;color:var(--muted);font-size:12px;line-height:1.7}.footer strong{color:#344b40}.toast{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#eaf4ee;color:var(--green);font-size:13px}.toast.show{display:block}
-@media(max-width:760px){.wrap{padding:0 14px}.nav{height:68px}.navlinks{gap:10px}.navlinks a{display:none}.hero{grid-template-columns:1fr;padding:29px 23px;gap:27px;border-radius:22px}.hero h1{letter-spacing:-1.3px}.preview{transform:none}.grid,.dashboard{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column;margin-top:34px}.card{padding:19px}.hero-actions .btn{flex:1}.balance{font-size:31px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to my personal and business website. Discover my services, work and contact details.">
+  <title>MySpace | Personal Website</title>
+
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #151923;
+      --gold: #e9bd63;
+      --text: #f6f6f8;
+      --muted: #a7adba;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,13,18,.95);
+      border-bottom: 1px solid #262a34;
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 590px;
+      display: flex;
+      align-items: center;
+      padding: 85px 0;
+      background:
+        radial-gradient(ellipse at 80% 30%, #292039 0, transparent 45%);
+    }
+
+    .tag {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.08;
+      margin: 22px 0;
+    }
+
+    h1 span, h2 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 590px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn.primary {
+      background: var(--gold);
+      color: #15120b;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .88;
+    }
+
+    section {
+      padding: 85px 0;
+      scroll-margin-top: 70px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 5vw, 44px);
+      margin: 10px 0 18px;
+      line-height: 1.2;
+    }
+
+    .intro {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 27px;
+      border: 1px solid #292e3a;
+      border-radius: 14px;
+    }
+
+    .card .symbol {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .about {
+      background: #10131b;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid #292e3a;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 720px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin: 12px 0;
+    }
+
+    footer {
+      border-top: 1px solid #292e3a;
+      padding: 25px 0;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        align-items: flex-start;
+        padding: 18px 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px 18px;
+        font-size: 14px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 490px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="wrap nav"><div class="brand"><div class="logo" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="M3 8c3-3 6-3 9 0s6 3 9 0M3 13c3-3 6-3 9 0s6 3 9 0M3 18c3-3 6-3 9 0s6 3 9 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>headwave</div><div class="navlinks"><a href="#features">How it works</a><a href="#account">Account</a><a href="#demo">Try the demo</a><span class="pill">DEMO MODE</span></div></header>
-<main class="wrap">
-<section class="hero"><div><div class="eyebrow">A clearer view of investing</div><h1>Build your future,<br>one step at a time.</h1><p>Explore a simple investment platform concept. This interactive preview uses fictional funds only and does not accept real payments or invest money.</p><div class="hero-actions"><button class="btn" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Try deposit demo ↓</button><button class="btn secondary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore platform</button></div></div>
-<div class="preview"><div class="preview-top"><span>Demo portfolio</span><span class="pill">SIMULATED</span></div><div class="balance" id="heroBalance">$1,000.00</div><div class="small">Illustrative balance · not real funds</div><svg class="spark" viewBox="0 0 320 90" preserveAspectRatio="none" aria-label="Illustrative, not real, portfolio line"><path d="M0 72 C20 65 27 72 44 55 S72 63 91 43 S120 48 138 36 S165 52 183 31 S210 40 231 23 S260 35 279 17 S303 24 320 8" fill="none" stroke="#2b8064" stroke-width="3" stroke-linecap="round"/><path d="M0 72 C20 65 27 72 44 55 S72 63 91 43 S120 48 138 36 S165 52 183 31 S210 40 231 23 S260 35 279 17 S303 24 320 8 L320 90 L0 90Z" fill="#dff0e5" opacity=".8"/></svg><div class="small">Demo activity</div><div class="fakebar"><span></span></div><div class="preview-top"><span>Deposit activity</span><strong>Sample data</strong></div></div></section>
-<section id="features"><div class="section-head"><div><h2>A simple place to start</h2><p>Core features planned for Headwave.</p></div></div><div class="grid"><article class="card"><div class="card-icon">◎</div><h3>Personal dashboard</h3><p>A clear overview of a user's profile, demo balance, and transaction history.</p></article><article class="card"><div class="card-icon">↗</div><h3>Deposit experience</h3><p>A payment flow preview, designed to connect to a licensed payment provider only after compliance checks.</p></article><article class="card"><div class="card-icon">▤</div><h3>Transparent records</h3><p>Display transaction status and clear explanations of fees, risks, and investment terms.</p></article></div></section>
-<section id="account"><div class="section-head"><div><h2>Create your Headwave account</h2><p>Test email sign-up and login. This does not enable deposits or real investments.</p></div><span class="pill">AUTH TEST</span></div><div class="card"><div id="authStatus" class="form-note" role="status">You are not signed in.</div><form id="authForm"><div class="field"><label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required></div><div class="field"><label for="authPassword">Password (at least 6 characters)</label><input id="authPassword" type="password" autocomplete="current-password" minlength="6" required></div><div class="hero-actions"><button class="btn" type="submit" id="signUpBtn">Create account</button><button class="btn secondary" type="button" id="signInBtn">Log in</button><button class="btn secondary" type="button" id="signOutBtn" hidden>Log out</button></div><div class="toast" id="authToast" role="status"></div></form><p class="form-note">Your password is sent directly to Supabase Auth over HTTPS; Headwave does not store it in this HTML file. If email confirmation is enabled in Supabase, follow the confirmation email before logging in.</p></div></section>
-<section id="demo"><div class="section-head"><div><h2>Try the deposit demo</h2><p>Test the interface using pretend money. No payment is made.</p></div><span class="pill">NO REAL PAYMENTS</span></div><div class="dashboard"><div class="card"><div class="card-icon">＋</div><h3>Simulate a deposit</h3><p>Choose a sample payment method and amount to see how a deposit confirmation might look.</p><form id="depositForm"><div class="field"><label for="method">Sample payment method</label><select id="method"><option>M-Pesa (simulation)</option><option>Bank transfer (simulation)</option><option>Debit or credit card (simulation)</option></select></div><div class="field"><label for="amount">Demo deposit amount (USD)</label><input id="amount" type="number" min="1" max="100000" step="1" value="100" required></div><button class="btn" type="submit">Simulate deposit</button><div class="toast" id="toast" role="status"></div></form><div class="notice"><strong>Demo only:</strong> This form does not contact M-Pesa, a bank, or a card processor. It only changes the sample balance in this page.</div></div>
-<div class="card"><div class="card-icon">▣</div><h3>Your demo wallet</h3><div class="small">Available demo balance</div><div class="balance" id="walletBalance">$1,000.00</div><div class="small">All amounts are fictional.</div><div class="transactions" id="transactions"><div class="tx"><div><div class="tx-title">Demo starting balance</div><div class="tx-sub">Initial sample entry</div></div><div class="amount">+$1,000.00</div></div></div></div></div></section>
-<div class="notice"><strong>Before launch:</strong> Headwave is a prototype, not an authorised investment service. Do not collect or pool real customer money until Kenyan legal counsel and the relevant regulators confirm the required licences, custody arrangements, disclosures, and payment-provider setup. Investment returns are not guaranteed.</div>
-</main><footer class="wrap footer"><strong>headwave</strong> · Investment platform concept<br>This prototype does not provide investment advice, accept real deposits, hold customer funds, or execute investments. Demo balance and activity reset when the page is refreshed. Supabase authentication requires an internet connection and may work best when served over HTTPS.</footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script>
 
-// Browser-safe Supabase settings: Project URL + publishable key only.
-// Never put a Supabase secret/service_role key in this file.
-const SUPABASE_URL = 'https://bcpjometlbmvrhycffqf.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_DCP2ADrTcWJTcL0MVtrYlA_MBJ1ig4K';
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">MySpace.</a>
 
-let balance = 1000;
-const money = n => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
-const balanceEls = [document.getElementById('heroBalance'), document.getElementById('walletBalance')];
-function updateBalance() { balanceEls.forEach(el => el.textContent = money(balance)); }
-function showAuthMessage(message, isError = false) {
-  const toast = document.getElementById('authToast');
-  toast.textContent = message;
-  toast.classList.add('show');
-  toast.style.background = isError ? '#fff0ed' : '#eaf4ee';
-  toast.style.color = isError ? '#8a2d1d' : '#1f6b55';
-}
-function renderSession(session) {
-  const status = document.getElementById('authStatus');
-  const signOut = document.getElementById('signOutBtn');
-  const signUp = document.getElementById('signUpBtn');
-  const signIn = document.getElementById('signInBtn');
-  if (session?.user) {
-    status.textContent = `Signed in as ${session.user.email}. Your wallet below is still a local demo only.`;
-    signOut.hidden = false;
-    signUp.hidden = true;
-    signIn.hidden = true;
-  } else {
-    status.textContent = 'You are not signed in.';
-    signOut.hidden = true;
-    signUp.hidden = false;
-    signIn.hidden = false;
-  }
-}
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">My Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-const authForm = document.getElementById('authForm');
-authForm.addEventListener('submit', async event => {
-  event.preventDefault();
-  const email = document.getElementById('authEmail').value.trim();
-  const password = document.getElementById('authPassword').value;
-  const { data, error } = await supabase.auth.signUp({ email, password });
-  if (error) { showAuthMessage(error.message, true); return; }
-  if (data.session) {
-    renderSession(data.session);
-    showAuthMessage('Account created and signed in successfully.');
-  } else {
-    showAuthMessage('Sign-up submitted. Check your email for a confirmation link if confirmation is enabled.');
-  }
-});
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="tag">Welcome to my website</div>
 
-document.getElementById('signInBtn').addEventListener('click', async () => {
-  const email = document.getElementById('authEmail').value.trim();
-  const password = document.getElementById('authPassword').value;
-  if (!email || !password) { showAuthMessage('Enter your email and password first.', true); return; }
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) { showAuthMessage(error.message, true); return; }
-  renderSession(data.session);
-  showAuthMessage('You are logged in.');
-});
+        <h1>
+          Turning ideas<br>
+          into <span>reality.</span>
+        </h1>
 
-document.getElementById('signOutBtn').addEventListener('click', async () => {
-  const { error } = await supabase.auth.signOut();
-  if (error) { showAuthMessage(error.message, true); return; }
-  renderSession(null);
-  showAuthMessage('You have logged out.');
-});
-supabase.auth.onAuthStateChange((_event, session) => renderSession(session));
-supabase.auth.getSession().then(({ data }) => renderSession(data.session));
+        <p>
+          I'm building something meaningful. Explore my work,
+          discover what I do, and let's connect to create
+          something amazing together.
+        </p>
 
-document.getElementById('depositForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const amount = Number(document.getElementById('amount').value);
-  const method = document.getElementById('method').value;
-  const toast = document.getElementById('toast');
-  if (!Number.isFinite(amount) || amount < 1 || amount > 100000) {
-    toast.textContent = 'Enter a demo amount between $1 and $100,000.';
-    toast.classList.add('show');
-    return;
-  }
-  balance += amount;
-  updateBalance();
-  const tx = document.createElement('div'); tx.className = 'tx';
-  const left = document.createElement('div');
-  const title = document.createElement('div'); title.className = 'tx-title'; title.textContent = 'Simulated deposit';
-  const sub = document.createElement('div'); sub.className = 'tx-sub'; sub.textContent = method + ' · just now';
-  left.append(title, sub);
-  const right = document.createElement('div'); right.className = 'amount'; right.textContent = '+' + money(amount);
-  tx.append(left, right); document.getElementById('transactions').prepend(tx);
-  toast.textContent = 'Demo deposit complete. ' + money(amount) + ' was added to your fictional balance; no real payment occurred.';
-  toast.classList.add('show');
-});
-updateBalance();
-</script>
-</body></html>
+        <div class="buttons">
+          <a class="btn primary" href="#services">Explore Services</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="tag">A little about me</div>
+        <h2>Who <span>I am</span></h2>
+
+        <p class="intro">
+          Welcome to my corner of the internet. This is where
+          I share my goals, projects, skills and business ideas.
+          I'm focused on growth, creativity and building for
+          the future.
+        </p>
+
+        <a class="btn" href="#contact">Let's Connect</a>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="tag">What I offer</div>
+        <h2>My <span>Services</span></h2>
+
+        <p class="intro">
+          Add your real services, skills or business offerings
+          to these cards.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="symbol">💻</div>
+            <h3>Digital Solutions</h3>
+            <p>
+              Share the digital services or technical skills
+              that you offer to customers.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="symbol">🚀</div>
+            <h3>Creative Projects</h3>
+            <p>
+              Showcase your ideas, creative work and projects
+              that you're developing.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="symbol">🤝</div>
+            <h3>Collaboration</h3>
+            <p>
+              Invite potential clients, partners and other
+              creators to work with you.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="work">
+      <div class="container">
+        <div class="tag">Portfolio</div>
+        <h2>My Latest <span>Work</span></h2>
+
+        <p class="intro">
+          Use this section to display your completed projects,
+          products, achievements or business milestones.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="symbol">📱</div>
+            <h3>Project One</h3>
+            <p>Describe your first project here.</p>
+          </article>
+
+          <article class="card">
+            <div class="symbol">🎨</div>
+            <h3>Project Two</h3>
+            <p>Describe your second project here.</p>
+          </article>
+
+          <article class="card">
+            <div class="symbol">✨</div>
+            <h3>Project Three</h3>
+            <p>Describe your third project here.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="tag">Get in touch</div>
+        <h2>Let's <span>Talk</span></h2>
+
+        <div class="contact-card">
+          <h3>Have an idea or business enquiry?</h3>
+
+          <p>
+            Reach out to discuss a project, ask a question
+            or explore an opportunity to work together.
+          </p>
+
+          <!-- Replace this email with your own -->
+          <a class="btn primary"
+             href="mailto:your-email@example.com?subject=Website%20Enquiry">
+            Email Me
+          </a>
+
+          <!-- Replace the number with your WhatsApp number.
+               Use international format without + or spaces. -->
+          <a class="btn"
+             href="https://wa.me/2547XXXXXXXX">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> MySpace. All rights reserved.</p>
+      <p>Built with purpose.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
